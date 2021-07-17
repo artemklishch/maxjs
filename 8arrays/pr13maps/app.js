@@ -6,7 +6,7 @@
 
 // // const yetMoreNumbers = Array.of(1, 2);
 // // console.log(yetMoreNumbers);
-
+   
 // const listItems = document.querySelectorAll('li');
 // console.log(listItems);
 
