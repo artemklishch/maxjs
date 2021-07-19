@@ -109,7 +109,7 @@ const sortedPrices = prices.sort((a, b) => {
 // console.log(sortedPrices.reverse());
 console.log(sortedPrices);
 
-const filteredArray = prices.filter(p => p > 6);
+const filteredArray = prices.filter((p) => p > 6);
 
 console.log(filteredArray);
 
@@ -125,29 +125,38 @@ const sum = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
 
 console.log(sum);
 
-const data = 'new york;10.99;2000';
+const data = "new york;10.99;2000";
 
-const transformedData = data.split(';');
+const transformedData = data.split(";");
 transformedData[1] = +transformedData[1];
 console.log(transformedData);
 
-const nameFragments = ['Max', 'Schwarz'];
-const name = nameFragments.join(' ');
+const nameFragments = ["Max", "Schwarz"];
+const name = nameFragments.join(" ");
 console.log(name);
 
 const copiedNameFragments = [...nameFragments];
-nameFragments.push('Mr');
+nameFragments.push("Mr");
 console.log(nameFragments, copiedNameFragments);
 
 console.log(Math.min(...prices));
 
-const persons = [{ name: 'Max', age: 30 }, { name: 'Manuel', age: 31 }];
-const copiedPersons = persons.map(person => ({
+const persons = [
+  { name: "Max", age: 30 },
+  { name: "Manuel", age: 31 },
+];
+const copiedPersons = persons.map((person) => ({
   name: person.name,
-  age: person.age
+  age: person.age,
 }));
 
-persons.push({ name: 'Anna', age: 29 });
+persons.push({ name: "Anna", age: 29 });
 persons[0].age = 31;
 
 console.log(persons, copiedPersons);
+
+console.log("\n\n\n");
+
+const obj1 = { name: "Tom" };
+console.log("obj1", obj1);
+obj1.name = "Bob";
