@@ -148,6 +148,8 @@ class App {
     finishedProjectsList.setSwitchHandlerFunction(
       activeProjectsList.addProject.bind(activeProjectsList)
     );
+    console.log('activeProjectsList', activeProjectsList)
+    console.log('finishedProjectsList', finishedProjectsList)
   }
 }
 
