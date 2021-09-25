@@ -1,4 +1,4 @@
-class DOMHelper {
+class DOMHelper {    
   static clearEventListeners(element) {
     const clonedElement = element.cloneNode(true);
     element.replaceWith(clonedElement);
