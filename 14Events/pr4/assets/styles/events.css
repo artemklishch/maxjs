@@ -44,10 +44,12 @@ li {
   padding: 1rem;
   border: 1px solid #ccc;
 }
+
 ul {
   list-style: none;
 }
-.hightlight {
-  background-color: #e92f6d;
-  color: #fff;
+
+.highlight {
+  background-color: red;
+  color: white;
 }
