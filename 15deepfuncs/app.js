@@ -42,3 +42,36 @@ console.log(calculateVatAmount(200));
 // closures
 console.log("\n", "closures");
 
+let userName = "Max";
+
+function greetName() {
+  let name = userName;
+  return "Hi, " + name;
+  // return "Hi, " + userName;
+}
+userName = "Manuel";
+console.log(greetName());
+
+console.log("\n", "recoursion");
+
+// function powerOf(x, n) {
+//   let result = 1;
+//   for (let i = 0; i < n; i++) {
+//     result *= x;
+//   }
+//   return result;
+// }
+
+function powerOf(x, n) {
+  // if (n === 1) {
+  //   return x;
+  // } else return x * powerOf(x, n - 1); 
+  return n === 1 ? x : x * powerOf(x, n - 1) 
+}
+console.log(powerOf(2, 3)); // 2*2*2
+// n = 3
+// 1. return powerOf(x, 3 - 1) 
+// n = 2
+// 2. return powerOf(x, 2 - 1) 
+// n = 1
+// 2. return 2
