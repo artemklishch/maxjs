@@ -65,13 +65,48 @@ console.log("\n", "recoursion");
 function powerOf(x, n) {
   // if (n === 1) {
   //   return x;
-  // } else return x * powerOf(x, n - 1); 
-  return n === 1 ? x : x * powerOf(x, n - 1) 
+  // } else return x * powerOf(x, n - 1);
+  return n === 1 ? x : x * powerOf(x, n - 1);
 }
 console.log(powerOf(2, 3)); // 2*2*2
 // n = 3
-// 1. return powerOf(x, 3 - 1) 
+// 1. return powerOf(x, 3 - 1)
 // n = 2
-// 2. return powerOf(x, 2 - 1) 
+// 2. return powerOf(x, 2 - 1)
 // n = 1
 // 2. return 2
+
+const mySelf = {
+  name: "Max",
+  friends: [
+    {
+      name: "mmanuel",
+      friends: [
+        {
+          name: "Chris",
+          friends: [
+            {
+              name: "Hari",
+            },
+            {
+              name: "Amilia",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Julia",
+    },
+  ],
+};
+const printFriendNames = (person) => {
+  const collectedNames = [];
+  if (!person.friends) return [];
+  for (const friend of person.friends) {
+    collectedNames.push(friend.name);
+    collectedNames.push(...printFriendNames(friend));
+  }
+  return collectedNames;
+};
+console.log("printFriendNames", printFriendNames(mySelf));
