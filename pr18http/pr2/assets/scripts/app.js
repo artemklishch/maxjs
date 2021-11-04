@@ -4,40 +4,27 @@ const form = document.querySelector("#new-post form");
 const fetchButton = document.querySelector("#available-posts button");
 const postList = document.querySelector("ul");
 
-// const xhr = new XMLHttpRequest();
-// xhr.open("GET", "https://jsonplaceholder.typicode.com/posts");
-// xhr.responseType = "json"; // this frees us of json parse
-// xhr.onload = function () {
-//   //   const listOfPosts = JSON.parse(xhr.response);
-//   const listOfPosts = xhr.response;
-//   for (const post of listOfPosts) {
-//     const postEl = document.importNode(postTemplate.content, true);
-//     postEl.querySelector("h2").textContent = post.title.toUpperCase();
-//     postEl.querySelector("p").textContent = post.body;
-//     listElement.append(postEl);
-//   }
-// };
-// xhr.send();
-
 function sendHttpRequest(method, url, data) {
-  const promise = new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.open(method, url);
-    xhr.responseType = "json";
-    xhr.onload = function () {
-      if (xhr.status >= 2 && xhr.status < 300) {
-        resolve(xhr.response);
+  return fetch(url, {
+    method: method,
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      if (res.status >= 200 && res.status < 300) {
+        return res.json();
       } else {
-        reject(new Error("Something went wrong!"));
+        return res.json().then((errData) => {
+          console.log(errData);
+          throw new Error("Something went wrong!");
+        });
       }
-    };
-    xhr.onerror = function () {
-      reject(new Error("Failed to send request!"));
-    };
-    xhr.send(JSON.stringify(data));
-  });
-  return promise;
+    })
+    .catch(() => {
+      throw new Error("Failed to send request!");
+    });
 }
 async function fetchPosts() {
   try {
