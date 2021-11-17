@@ -1,5 +1,9 @@
 import { ProjectItem } from "./ProjectItem.js";
-import { DOMHelper } from "../Utility/DOMHelper.js";
+import { moveElement } from "../Utility/DOMHelper.js";
+
+// console.log('DEFAULT_VALUE', DEFAULT_VALUE);
+console.log(window);
+console.log(this);
 
 export class ProjectList {
   projects = [];
@@ -17,6 +21,8 @@ export class ProjectList {
   }
 
   connectDroppable() {
+    console.log('window.DEFAULT_VALUE', window.DEFAULT_VALUE);
+    console.log('globalThis.DEFAULT_VALUE2', globalThis.DEFAULT_VALUE2);
     const list = document.querySelector(`#${this.type}-projects ul`);
 
     list.addEventListener("dragenter", (event) => {
@@ -58,7 +64,7 @@ export class ProjectList {
 
   addProject(project) {
     this.projects.push(project);
-    DOMHelper.moveElement(project.id, `#${this.type}-projects ul`);
+    moveElement(project.id, `#${this.type}-projects ul`);
     project.update(this.switchProject.bind(this), this.type);
   }
 

@@ -1,5 +1,9 @@
 import { ProjectList } from "./App/ProjectList.js";
 
+window.DEFAULT_VALUE = "Max"
+globalThis.DEFAULT_VALUE2 = "Max2"
+// const DEFAULT_VALUE = "Max"
+
 class App {
   static init() {
     const activeProjectsList = new ProjectList("active");
