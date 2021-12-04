@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>My Place</title>
+  <link rel="stylesheet" href="../assets/styles/app.css" />
+  <link rel="stylesheet" href="../assets/styles/my-place.css" />
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB07V8-C1ApiqqwfFmgPZgHEUWiRQ0poA0">
+  </script>
+  <script src="../assets/scripts/MyPlace.js" defer></script>
+</head>
+
+<body>
+  <template id="modal-template">
+    <div class="backdrop"></div>
+    <div class="modal"></div>
+  </template>
+  <template id="loading-modal-content">
+    <div class="modal__content centered">
+      <div class="lds-dual-ring"></div>
+    </div>
+  </template>
+  <header>
+    <h1></h1>
+  </header>
+
+  <section id="selected-place">
+    <div id="map"></div>
+  </section>
+
+  <section id="share-controls">
+    <a href="/">Share a New Place!</a>
+  </section>
+</body>
+
+</html>
