@@ -46,15 +46,12 @@ class PlaceFinder {
       }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
-
-    this.shareBtn.disabled = false;
-    const sharedLinkInputElement = document.getElementById("share-link");
-    sharedLinkInputElement.value = `${
-      location.origin
-    }/my-place?address=${encodeURI(address)}&lat=${coordinates.lat}&lng=${
-      coordinates.lng
-    }`;
+      .then((data) => {
+        const locationId = data.locId;
+        this.shareBtn.disabled = false;
+        const sharedLinkInputElement = document.getElementById("share-link");
+        sharedLinkInputElement.value = `${location.origin}/my-place?location=${locationId}`;
+      });
   }
   locateUserHandler() {
     if (!navigator.geolocation) {
