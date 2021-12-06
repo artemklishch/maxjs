@@ -1,4 +1,4 @@
-const GOOGLE_API_KEY = "AIzaSyB07V8-C1ApiqqwfFmgPZgHEUWiRQ0poA0";
+const GOOGLE_API_KEY = process.env.GOOGLE_MAPS_KEY;
 
 export async function getAddressFromCoords(coords) {
   const response = await fetch(

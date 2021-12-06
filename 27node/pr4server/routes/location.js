@@ -3,8 +3,8 @@ const express = require("express");
 // db settings start
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
-const uri =
-  "mongodb+srv://Artem2:artem2@cluster0.fikvk.mongodb.net/locations?retryWrites=true&w=majority";
+const uri = process.env.DATA_BASE_KEY;
+
 const client = new MongoClient(uri);
 // db settings end
 

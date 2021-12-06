@@ -1,17 +1,17 @@
-const GOOGLE_API_KEY = 'AIzaSyB07V8-C1ApiqqwfFmgPZgHEUWiRQ0poA0';
+const GOOGLE_API_KEY = process.env.GOOGLE_MAPS_KEY;
 
 export async function getAddressFromCoords(coords) {
   const response = await fetch(
     `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.lat},${coords.lng}&key=${GOOGLE_API_KEY}`
   );
   if (!response.ok) {
-    throw new Error('Failed to fetch address. Please try again!');
+    throw new Error("Failed to fetch address. Please try again!");
   }
   const data = await response.json();
   if (data.error_message) {
     throw new Error(data.error_message);
   }
-  let address = 'UNKNOWN';
+  let address = "UNKNOWN";
   if (data.results.length > 0) {
     address = data.results[0].formatted_address;
   }
@@ -24,7 +24,7 @@ export async function getCoordsFromAddress(address) {
     `https://maps.googleapis.com/maps/api/geocode/json?address=${urlAddress}&key=${GOOGLE_API_KEY}`
   );
   if (!response.ok) {
-    throw new Error('Failed to fetch coordinates. Please try again!');
+    throw new Error("Failed to fetch coordinates. Please try again!");
   }
   const data = await response.json();
   if (data.error_message) {
