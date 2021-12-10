@@ -5,7 +5,6 @@ module.exports = {
   mode: 'production',
   entry: {
     shop: './src/optimized/shop.js'
-    // shop: './src/non-optimized/shop.js'
   },
   output: {
     filename: '[name].js',

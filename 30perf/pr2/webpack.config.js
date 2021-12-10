@@ -5,14 +5,16 @@ module.exports = {
   mode: 'production',
   entry: {
     shop: './src/optimized/shop.js'
-    // shop: './src/non-optimized/shop.js'
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist', 'assets', 'scripts'),
     publicPath: 'assets/scripts/'
   },
-  devtool: 'cheap-source-map',
+  devtool: 'source-map',
+  devServer: {
+    contentBase: './dist'
+  },
   module: {
     rules: [
       {
