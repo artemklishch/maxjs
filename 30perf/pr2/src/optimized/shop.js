@@ -1,24 +1,25 @@
-import { products } from './products';
-import { renderProducts } from './rendering';
+import { products } from "./products";
+import { renderProducts } from "./rendering";
 
 function addProduct(event) {
-  import('./product-management.js').then(mod => {
+  event.preventDefault();
+  import("./product-management.js").then((mod) => {
     mod.addProduct(event);
-  })
+  });
 }
 
 function deleteProduct(productId) {
-  import('./product-management.js').then(mod => {
+  import("./product-management.js").then((mod) => {
     mod.deleteProduct(productId);
-  })
+  });
 }
 
 function initProducts() {
   renderProducts(products, deleteProduct);
 }
 
-const addProductForm = document.getElementById('new-product');
+const addProductForm = document.getElementById("new-product");
 
 initProducts();
 
-addProductForm.addEventListener('submit', addProduct);
+addProductForm.addEventListener("submit", addProduct);
