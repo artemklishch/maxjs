@@ -37,3 +37,5 @@ const nameMap = {
   Tom: 6,
 };
 const tomUsages2 = nameMap["Tom"].usage; // constant time complexity - O(1)
+
+const newRealMap = new Map()
